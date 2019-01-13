@@ -13,7 +13,6 @@ module.exports = {
 		path: path.resolve(__dirname, "../dist"),
 		filename: "bundle.js"
 	},
-
 	module: {
 		//配置一个rules(规则),rules是一个数组,里面包含一条一条的规则
 		rules: [
@@ -59,8 +58,9 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-      vue$: "vue/dist/vue.esm.js", // 用 webpack 1 时需用 'vue/dist/vue.common.js'
-      src:path.resolve(__dirname, "../src"),
+        vue$: "vue/dist/vue.esm.js", // 用 webpack 1 时需用 'vue/dist/vue.common.js'
+         src:path.resolve(__dirname, "../src"),
+         components:path.resolve(__dirname, "../src/components"),
     },
     extensions: [".js", ".vue", ".coffee", ".html", ".css", ".scss", ".less"]
 	},
@@ -72,10 +72,14 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: "aaaa",
 			chunks: ["index"],
-			filename: "test.html",
+			filename: "index.html",
 			hash: true, // 会在打包好的bundle.js后面加上hash串
 			inject: "body",
 			template: "index.html"
+		}),
+		new webpack.ProvidePlugin({
+			jQuery: "jquery",
+			$: "jquery"
 		})
 	],
 	devServer: {

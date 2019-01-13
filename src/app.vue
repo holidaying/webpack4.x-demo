@@ -30,7 +30,9 @@ export default {
 
   beforeMount() {},
 
-  mounted() {},
+  mounted() {
+      $("div").css("margin-top","30px")
+  },
 
   methods: {},
 
