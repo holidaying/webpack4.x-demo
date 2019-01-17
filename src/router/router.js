@@ -1,5 +1,5 @@
-
-module.exports=[
-    { path: '/foo', component: () => import('./foo.vue') },
-    { path: '/bar', component: () => import('./bar.vue') }
+var router = [
+    { path: '/foo', component: () => import(`../modules/foot.vue`) },
+    { path: '/bar', component: () => import(`../modules/bar.vue`) }
 ]
+module.exports=router;
