@@ -3,8 +3,9 @@ var HtmlWebpackPlugin = require("html-webpack-plugin"); //打包html的插件
 var ExtractTextPlugin = require("extract-text-webpack-plugin"); //css 单独打包
 var webpack = require("webpack");
 var VueLoaderPlugin = require("vue-loader/lib/plugin");
+var devServerConfig = require("./devServer.js");
 console.log(VueLoaderPlugin);
-// const { VueLoaderPlugin } = require("vue-loader");
+
 console.log("==================");
 module.exports = {
 	mode: "development",
@@ -82,10 +83,5 @@ module.exports = {
 			$: "jquery"
 		})
 	],
-	devServer: {
-		contentBase: path.join(__dirname, "../dist"),
-		compress: true,
-		hot: true, //热加载
-		port: 9000
-	}
+	devServer: devServerConfig.devServer
 };

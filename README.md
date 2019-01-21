@@ -30,19 +30,85 @@ new webpack.HotModuleReplacementPlugin(),
 ```
 
 ### 5.css代码分离
+```
+var ExtractTextPlugin = require("extract-text-webpack-plugin"); //css 单独打包
+new ExtractTextPlugin("css/[name].css"),
+```
 
 ### 6.babel安装使用
-
+```
+npm install --save-dev babel-core babel-loader babel-preset-es2015
+需要用babel命令，则需要安装 npm install babel-cli
+```
 ### 7.vue-loader的安装使用
+```
+npm i vue vue-loader vue-template-compiler --save-dev
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+module.exports = {
+  module: {
+    rules: [
+      // ... 其它规则
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  },
+  plugins: [
+    // 请确保引入这个插件！
+    new VueLoaderPlugin()
+  ]
+}
 
+```
 ### 8.vue过滤器、指令
+```
+import directive from "./directive";
+import filter from "./filter"
+var common = {
+    install:(Vue)=>{
+        directive(Vue);
+        filter(Vue);
+    }
+}
+if (typeof exports == "object") {
+	module.exports = common;
+} else if (typeof define == "function" && define.amd) {
+	define([], function() {
+		return common;
+	});
+} else if (window.Vue) {
+	Vue.use(common);
+}
+```
 
 ### 9.vue-router、beforeEach
-
+```
+//路由设置
+var router = (window.$router = new VueRouter({
+	routes: routerConfig
+}));
+router.beforeEach((to,from,next)=>{
+    if(to.name=="bar"){
+        window.notify("this is bar componets","warning");
+        return
+    }
+    next()
+})
+```
 ### 9.router.addRouters
+```
+import addRouters from "./router/addRouters.js"
 
-### 10.打包部署
-
+//路由设置
+var router = (window.$router = new VueRouter({
+	routes: routerConfig
+}));
+router.addRoutes(addRouters);
+```
+### 10.打包部署、拆分webpack-dev、webpack-publish
+```
+```
 ### 11.node、gulp服务上传
 
 

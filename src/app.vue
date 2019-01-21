@@ -13,6 +13,8 @@
     <router-view></router-view>
     <router-link to="/foo">Go to Foo</router-link>
     <router-link to="/bar">Go to Bar</router-link>
+    <button @click="goComponets('top')">点击我去top</button>
+    <button @click="goComponets('bottom')">点击我去bottom</button>
   </div>
 </template>
 
@@ -37,7 +39,11 @@ export default {
     $("div").css("margin-top", "30px");
   },
 
-  methods: {},
+  methods: {
+      goComponets(type){
+          this.$router.push(type);
+      }
+  },
 
   watch: {}
 };

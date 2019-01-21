@@ -4,8 +4,8 @@
   "description": "clear frame",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --progress --colors --config ./build/webpack.base.conf.js",
-    "build": "webpack --mode development --progress --colors --config ./build/webpack.base.conf.js"
+    "dev": "webpack-dev-server --mode development --progress --colors --config ./build/webpack.dev.conf.js",
+    "build": "webpack --mode production --progress --colors --config ./build/webpack.publish.conf.js"
   },
   "author": "",
   "license": "ISC",
