@@ -33,6 +33,9 @@ new webpack.HotModuleReplacementPlugin(),
 ```
 var ExtractTextPlugin = require("extract-text-webpack-plugin"); //css 单独打包
 new ExtractTextPlugin("css/[name].css"),
+
+webpack4.x以上，webpack发布环境自动压缩，推荐使用mini-css-extract-plugin
+npm i mini-css-extract-plugin
 ```
 
 ### 6.babel安装使用
@@ -106,8 +109,22 @@ var router = (window.$router = new VueRouter({
 }));
 router.addRoutes(addRouters);
 ```
-### 10.打包部署、拆分webpack-dev、webpack-publish
+### 10.webpack.DefinePlugin设置环境变量
 ```
+  new webpack.DefinePlugin({
+			"$env": "development",
+			"$version":JSON.stringify("v1.0.0")
+		}),
+	],
+    注意要json转换，否则容易解析报错
+```
+### 11.打包部署、拆分webpack-dev、webpack-publish
+```
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.base.conf')
+
+开发环境不需要打包压缩
+生产环境需要打包压缩
 ```
 ### 11.node、gulp服务上传
 

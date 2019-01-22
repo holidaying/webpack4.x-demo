@@ -36,6 +36,7 @@ export default {
   beforeMount() {},
 
   mounted() {
+      console.log($version);
     $("div").css("margin-top", "30px");
   },
 

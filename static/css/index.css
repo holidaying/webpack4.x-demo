@@ -1,0 +1,30 @@
+
+body {
+  position: relative;
+  height: 100%;
+  background: #f4f4f4;
+}
+div {
+  background: #f4f4f4;
+}
+
+
+.notify-container[data-v-26b688ef] {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+}
+.notify-container span[data-v-26b688ef] {
+  padding: 4px 10px;
+  color: #fff;
+  background: yellow;
+}
+.notify-container.warning[data-v-26b688ef] {
+  background: yellow;
+}
+.notify-container.success[data-v-26b688ef] {
+  background: green;
+}
+
