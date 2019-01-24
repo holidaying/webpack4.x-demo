@@ -55,7 +55,7 @@ export default {
 		return re.test(str);
 	},
 	//merge两个对象，深拷贝
-	mergeObj: function(dist, extra) {
+	merge: function(dist, extra) {
 		var obj = extra || {};
 		//遍历外层传入的参数
 		for (var key in extra) {

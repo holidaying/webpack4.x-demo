@@ -126,7 +126,7 @@ const baseConfig = require('./webpack.base.conf')
 开发环境不需要打包压缩
 生产环境需要打包压缩
 ```
-### 11.node、gulp服务上传
+### 12.node、gulp服务上传
 
 
 
