@@ -1,5 +1,4 @@
 var gulp = require("gulp"),
-	webpack = require("gulp-webpack"),
 	sftp = require("gulp-sftp"),
 	replace = require("gulp-replace"),
 	zip = require("gulp-zip"),
@@ -14,13 +13,6 @@ var gulp = require("gulp"),
 	appsConfig = require("./buildConfig/apps");
 
 var publishFileName;
-
-gulp.task("webpackbuild", function() {
-	return gulp
-		.src("src/main.js")
-		.pipe(webpack(require("./buildConfig/webpack/webpack.build.config")))
-		.pipe(gulp.dest("dist/"));
-});
 
 gulp.task("copy", function() {
 	var appName = process.argv[3].substring(2);

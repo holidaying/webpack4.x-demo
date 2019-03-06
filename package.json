@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --mode development --progress --colors --config ./build/webpack.dev.conf.js",
-    "build": "webpack --mode production --progress --colors --config ./build/webpack.publish.conf.js"
+    "build": "webpack --mode production --progress --colors --config ./build/webpack.publish.conf.js",
+    "publish": "node buildConfig/webpack/publish.js",
+    "gulp": "gulp"
   },
   "author": "",
   "license": "ISC",

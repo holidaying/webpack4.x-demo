@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
 	mode: 'development',
 	entry: { index: './src/main.js' },
 	output: {
-		path: path.resolve(__dirname, '../dist'),
+		path: path.resolve(__dirname, '../static'),
 		filename: 'bundle.js',
         publicPath:'/'
 	},
