@@ -129,5 +129,8 @@ const baseConfig = require('./webpack.base.conf')
 ### 12.node、gulp服务上传
 
 
+### 13.i18n 国际化添加
+
+
 
 
