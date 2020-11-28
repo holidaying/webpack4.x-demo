@@ -1,6 +1,8 @@
 <template>
   <div>
     {{title}}
+    <button @click="changeI18">国际化</button>
+    <p style="color:red">国际化测试{{$t('message.greeting')}}</p>
     <p>
       {{time|dateTimeFormat}}
     </p>
@@ -14,6 +16,7 @@
     <router-link to="/foo">Go to Foo</router-link>
     <router-link to="/bar">Go to Bar</router-link>
     <button @click="goComponets('top')">点击我去top</button>
+    
     <button @click="goComponets('bottom')">点击我去bottom</button>
   </div>
 </template>
@@ -25,6 +28,7 @@ export default {
   data() {
     return {
       title: "hello world",
+      lang:'zh',
       time: Date.now()
     };
   },
@@ -43,6 +47,10 @@ export default {
   methods: {
       goComponets(type){
           this.$router.push(type);
+      },
+      changeI18(){
+        this.lang = this.$i18n.locale === 'zh' ? 'en' : 'zh'
+        this.$i18n.locale = this.lang
       }
   },
 

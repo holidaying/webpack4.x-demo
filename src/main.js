@@ -7,6 +7,8 @@ import {install} from "src/components";
 import VueRouter from "vue-router";
 import routerConfig from "./router/router.js"
 import addRouters from "./router/addRouters.js"
+import VueI18n from 'vue-i18n'
+Vue.use(VueI18n)
 Vue.use(VueRouter);
 Vue.use(common);
 Vue.use(install);
@@ -23,4 +25,14 @@ router.beforeEach((to,from,next)=>{
     }
     next()
 })
-window.VueInstance = new Vue({ el: "#app",router,render: h => h(App) });
+const i18n = new VueI18n({ 
+    // 默认语言
+    locale: 'zh',
+    // 引入对应的语言包文件
+    messages: {   
+       'zh': require('static/languages/zh.json'),   
+       'en': require('static/languages/en.json') 
+     }
+   });
+
+window.VueInstance = new Vue({ el: "#app",router,i18n,render: h => h(App) });

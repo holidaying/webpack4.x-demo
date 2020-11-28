@@ -23,7 +23,8 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['es2015']
+						presets: ['es2015'],
+						plugins: ["babel-plugin-syntax-dynamic-import"]
 					}
 				},
 				exclude: /node_modules/
@@ -38,6 +39,7 @@ module.exports = {
 		alias: {
 			vue$: 'vue/dist/vue.esm.js', // 用 webpack 1 时需用 'vue/dist/vue.common.js'
 			src: path.resolve(__dirname, '../src'),
+			static: path.resolve(__dirname, '../static'),
 			components: path.resolve(__dirname, '../src/components')
 		},
 		extensions: ['.js', '.vue', '.coffee', '.html', '.css', '.scss', '.less']
